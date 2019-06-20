@@ -11,7 +11,7 @@ class NewsBloc extends BlocBase<NewsStreams, NewsEvents> {
 
   int _page = 0;
   int _currentCategory = 0;
-  List<int> _categories = [0, 29, 31, 32, 38, 60, 68, 56, 62, 70, 40];
+  List<int> _categories = [0, 29, 31, 32, 38, 60, 68, 62, 70, 40];
   List<String> _categoriesNames = List();
   List<Notice> _newsInner = List();
   bool _carregando = false;
@@ -24,7 +24,7 @@ class NewsBloc extends BlocBase<NewsStreams, NewsEvents> {
     _categoriesNames.add(getString("cat_politica"));
     _categoriesNames.add(getString("cat_educacao"));
     _categoriesNames.add(getString("cat_saude"));
-    _categoriesNames.add(getString("cat_tecnologia"));
+    // _categoriesNames.add(getString("cat_tecnologia"));
     _categoriesNames.add(getString("cat_esporte"));
     _categoriesNames.add(getString("cat_servico"));
     _categoriesNames.add(getString("cat_entrevistas"));

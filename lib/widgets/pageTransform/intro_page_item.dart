@@ -107,7 +107,7 @@ class IntroNewsItem extends StatelessWidget {
         return ClipRRect(
           borderRadius: new BorderRadius.circular(8.0),
           child: new FadeInImage.assetNetwork(
-            placeholder: 'assets/place_holder.jpg',
+            placeholder: 'assets/itz_place_holder.png',
             image: url,
             fit: BoxFit.cover,
             alignment: new FractionalOffset(
@@ -117,10 +117,10 @@ class IntroNewsItem extends StatelessWidget {
           ),
         );
       } else {
-        return new Image.asset('assets/place_holder_2.jpg');
+        return new Image.asset('assets/itz_place_holder_2.png');
       }
     } catch (e) {
-      return new Image.asset('assets/place_holder_2.jpg');
+      return new Image.asset('assets/itz_place_holder_2.png');
     }
   }
 

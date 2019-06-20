@@ -69,7 +69,7 @@ class Notice extends StatelessWidget {
     Navigator.of(_context)
         .push(new MaterialPageRoute(builder: (BuildContext context) {
       return new DetailPage(
-          img, title, date, content ,description, category, link, origin);
+          img, title, date, content, description, category, link, origin);
     }));
   }
 
@@ -108,15 +108,17 @@ class Notice extends StatelessWidget {
     try {
       if (url.isNotEmpty) {
         return new FadeInImage.assetNetwork(
-          placeholder: 'assets/place_holder.jpg',
+          placeholder: 'assets/itz_place_holder_5.jpg',
           image: url,
           fit: BoxFit.cover,
         );
       } else {
-        return new Image.asset('assets/place_holder.jpg');
+        return new Image.asset('assets/itz_place_holder_5.jpg',
+            fit: BoxFit.cover);
       }
     } catch (e) {
-      return new Image.asset('assets/place_holder.jpg');
+      return new Image.asset('assets/itz_place_holder_5.jpg',
+          fit: BoxFit.cover);
     }
   }
 
@@ -127,7 +129,7 @@ class Notice extends StatelessWidget {
         curencyName,
         maxLines: 3,
         textAlign: TextAlign.center,
-        style: new TextStyle(fontSize: 18.0, color: Colors.grey),
+        style: new TextStyle(fontSize: 18.0, color: Colors.grey[800]),
       ),
     );
   }
@@ -149,6 +151,9 @@ class Notice extends StatelessWidget {
     // );
     return new Text(new DateUtil().buildDate(date),
         textAlign: TextAlign.center,
-        style: new TextStyle(color: Colors.blue, fontSize: 15.0));
+        style: new TextStyle(
+            color: Color.fromARGB(255, 227, 80, 75),
+            fontSize: 15.0,
+            fontWeight: FontWeight.bold));
   }
 }

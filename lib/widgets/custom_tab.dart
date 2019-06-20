@@ -33,7 +33,7 @@ class _CustomTabState extends State<CustomTab> {
     return new Container(
       height: 50.0,
       child: listCategory,
-      color: Colors.grey[200].withAlpha(200),
+      color: Colors.grey[100].withAlpha(200),
     );
 
   }

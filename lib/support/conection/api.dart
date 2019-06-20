@@ -17,13 +17,23 @@ class Api {
 
       final statusCode = response.statusCode;
       final String jsonBody = response.body;
+      const JsonDecoder decoder = const JsonDecoder();
+      var body = decoder.convert(response.body);
 
-      if (statusCode < 200 || statusCode >= 300 || jsonBody == null) {
+      if ((statusCode < 200 || statusCode >= 300 || jsonBody == null) &&
+          (statusCode != 400)) {
         throw new FetchDataException("Error request:", statusCode);
       }
 
-      const JsonDecoder decoder = const JsonDecoder();
-      return decoder.convert(response.body);
+      if (statusCode == 400) {
+        print("Error: 400 Bad Request");
+        print(body);
+        print(body['code']);
+        print(body['message']);
+        // throw new FetchDataException("Error request:", statusCode);
+      }
+
+      return body;
     } on Exception catch (e) {
       throw new FetchDataException(e.toString(), 0);
     }

@@ -21,9 +21,13 @@ flutter:
 
   uses-material-design: true
   assets:
-      - assets/place_holder.jpg
-      - assets/place_holder_2.jpg
-      - assets/place_holder_3.jpg
+      # - assets/place_holder.jpg
+      # - assets/place_holder_2.jpg
+      # - assets/place_holder_3.jpg
+      - assets/itz_place_holder.png
+      - assets/itz_place_holder_2.png
+      - assets/itz_place_holder_3.png
+      - assets/itz_place_holder_5.jpg
       - resources/lang/en.json
       - resources/lang/pt.json
   

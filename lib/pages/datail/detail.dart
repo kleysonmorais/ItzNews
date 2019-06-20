@@ -64,7 +64,7 @@ class DetailPage extends StatelessWidget {
           child: new Container(
             height: 250.0,
             child: new FadeInImage.assetNetwork(
-              placeholder: 'assets/place_holder.jpg',
+              placeholder: 'assets/itz_place_holder.png',
               image: url,
               fit: BoxFit.cover,
             ),
@@ -73,13 +73,13 @@ class DetailPage extends StatelessWidget {
       } else {
         return new Container(
           height: 200.0,
-          child: new Image.asset('assets/place_holder_3.jpg'),
+          child: new Image.asset('assets/itz_place_holder_3.png'),
         );
       }
     } catch (e) {
       return new Container(
         height: 200.0,
-        child: new Image.asset('assets/place_holder_3.jpg'),
+        child: new Image.asset('assets/itz_place_holder_3.png'),
       );
     }
   }

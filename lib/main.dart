@@ -25,11 +25,11 @@ class NewsApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return new MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Flutter News',
+      title: 'Itz News',
       theme: new ThemeData(
-        primarySwatch: Colors.blue,
-        primaryColor: Colors.blue,
-        accentColor: Colors.blue,
+        primarySwatch: Colors.red,
+        primaryColor: Color.fromARGB(255, 227, 80, 75),
+        accentColor: Color.fromARGB(255, 227, 80, 75),
         brightness: Brightness.light
       ),
       supportedLocales: MyLocalizationsDelegate.supportedLocales(),
@@ -39,7 +39,7 @@ class NewsApp extends StatelessWidget {
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
       ],
-      localeResolutionCallback: myLocation.resolution,
+      // localeResolutionCallback: myLocation.resolution,
       home: HomeView(),
     );
   }
