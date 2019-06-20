@@ -1,4 +1,4 @@
-package com.rafaelbarbosatec.newsflutter;
+package com.kleysonmorais.itznews;
 
 import android.os.Bundle;
 
