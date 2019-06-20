@@ -6,13 +6,14 @@ import 'package:meta/meta.dart';
 import 'page_transformer.dart';
 
 class IntroNews {
-  IntroNews(this.title, this.category, this.imageUrl, this.description,
-      this.date, this.link, this.origin);
+  IntroNews(this.title, this.category, this.imageUrl, this.content,
+      this.description, this.date, this.link, this.origin);
 
   final String title;
   final String category;
   final String imageUrl;
   final String date;
+  final String content;
   final String description;
   final String link;
   final String origin;
@@ -21,6 +22,7 @@ class IntroNews {
       : title = notice.title,
         category = notice.category,
         imageUrl = notice.img,
+        content = notice.content,
         description = notice.description,
         date = notice.date,
         link = notice.link,
@@ -188,7 +190,7 @@ class IntroNewsItem extends StatelessWidget {
 
   void openDetail(BuildContext context) {
     Navigator.of(context).push(FadeInRoute(
-        widget: DetailPage(item.imageUrl, item.title, item.date,
+        widget: DetailPage(item.imageUrl, item.title, item.date, item.content,
             item.description, item.category, item.link, item.origin)));
   }
 }

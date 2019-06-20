@@ -1,5 +1,5 @@
 import 'package:FlutterNews/support/util/date_util.dart';
-import 'package:FlutterNews/support/util/functions.dart';
+// import 'package:FlutterNews/support/util/functions.dart';
 import 'package:FlutterNews/pages/datail/detail.dart';
 import 'package:flutter/material.dart';
 
@@ -27,7 +27,7 @@ class Notice extends StatelessWidget {
         // category = map['category'],
         category = 'Categoria',
         link = map['guid']['rendered'],
-        origin = 'Origem';
+        origin = 'Imperatriz Notícias';
 
   BuildContext _context;
 
@@ -50,9 +50,9 @@ class Notice extends StatelessWidget {
 
   Widget _getListTile() {
     return new Container(
-      height: 95.0,
-      child: new Row(
-        crossAxisAlignment: CrossAxisAlignment.start,
+      height: 390.0,
+      child: new Column(
+        // crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           new Hero(
             tag: title,
@@ -69,7 +69,7 @@ class Notice extends StatelessWidget {
     Navigator.of(_context)
         .push(new MaterialPageRoute(builder: (BuildContext context) {
       return new DetailPage(
-          img, title, date, description, category, link, origin);
+          img, title, date, content ,description, category, link, origin);
     }));
   }
 
@@ -78,11 +78,14 @@ class Notice extends StatelessWidget {
         child: new Container(
       margin: new EdgeInsets.all(10.0),
       child: new Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
-          _getTitleWidget(title),
+          new Container(
+            height: 100,
+            child: _getTitleWidget(title),
+          ),
           _getDateWidget(date),
-          _getDescriptionWidget(description)
+          // _getDescriptionWidget(description)
         ],
       ),
     ));
@@ -90,12 +93,12 @@ class Notice extends StatelessWidget {
 
   Widget _getImgWidget(String url) {
     return new Container(
-      width: 95.0,
-      height: 95.0,
+      // width: 95.0,
+      height: 250.0,
       child: new ClipRRect(
         borderRadius: new BorderRadius.only(
-            topLeft: const Radius.circular(6.0),
-            bottomLeft: const Radius.circular(6.0)),
+            topRight: const Radius.circular(6.0),
+            topLeft: const Radius.circular(6.0)),
         child: _getImageNetwork(url),
       ),
     );
@@ -117,11 +120,15 @@ class Notice extends StatelessWidget {
     }
   }
 
-  Text _getTitleWidget(String curencyName) {
-    return new Text(
-      curencyName,
-      maxLines: 1,
-      style: new TextStyle(fontWeight: FontWeight.bold),
+  Widget _getTitleWidget(String curencyName) {
+    return new Container(
+      padding: EdgeInsets.all(15.0),
+      child: new Text(
+        curencyName,
+        maxLines: 3,
+        textAlign: TextAlign.center,
+        style: new TextStyle(fontSize: 18.0, color: Colors.grey),
+      ),
     );
   }
 
@@ -136,9 +143,12 @@ class Notice extends StatelessWidget {
   }
 
   Widget _getDateWidget(String date) {
-    return new Text(
-      new DateUtil().buildDate(date),
-      style: new TextStyle(color: Colors.grey, fontSize: 10.0),
-    );
+    // return new Text(
+    //   new DateUtil().buildDate(date),
+    //   style: new TextStyle(color: Colors.grey, fontSize: 10.0),
+    // );
+    return new Text(new DateUtil().buildDate(date),
+        textAlign: TextAlign.center,
+        style: new TextStyle(color: Colors.blue, fontSize: 15.0));
   }
 }

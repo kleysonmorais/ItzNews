@@ -33,7 +33,8 @@ class NoticeRepositoryImpl implements NoticeRepository {
         // print(urlImg);
         var dataImg = await _api.get(urlImg);
         // result[i]['url_img'] = dataImg['guid']['rendered'];
-        result[i]['url_img'] = dataImg['media_details']['sizes']['medium']['source_url'];
+        // result[i]['url_img'] = dataImg['media_details']['sizes']['medium']['source_url'];
+        result[i]['url_img'] = dataImg['media_details']['sizes']['et-builder-post-main-image']['source_url'];
       } catch (Exception) {
         result[i]['url_img'] = '';
         print(Exception);
