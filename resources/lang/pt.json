@@ -1,0 +1,23 @@
+{
+  "tab_recentes":"Recentes",
+  "tab_noticias":"Notícias",
+  "tab_sobre":"Sobre",
+  "hint_busca":"Busque sua noticia aqui",
+  "text_error":"Erro de conexão",
+  "text_tentar_novamente":"TENTAR NOVAMENTE",
+  "cat_geral":"Geral",
+  "cat_cidade": "Cidade",
+  "cat_cultura": "Cultura",
+  "cat_economia": "Economia",
+  "cat_politica": "Política",
+  "cat_educacao": "Educação",
+  "cat_saude": "Saúde",
+  "cat_tecnologia": "Tecnologia",
+  "cat_esporte": "Esporte",
+  "cat_servico": "Serviço",
+  "cat_entrevistas": "Entrevistas",
+  "erro_busca":"Nenhuma noticia encontrada :-(",
+  "text_info":"Aplicação desenvolvida sem fins lucrativos com o objetivo de explorar o potencial do framework Flutter.",
+  "text_copy":"Link Copiado.",
+  "text_fechar":"Fechar."
+}
