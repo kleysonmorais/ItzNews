@@ -8,7 +8,7 @@ injectRepository(Injector injector) {
     Api _api;
     switch (Flavors().getFlavor()) {
       case Flavor.PROD:
-        _api = Api("https://imperatriznoticias.ufma.br/wp-json/wp/v2");
+        _api = Api("http://itznews.us-east-2.elasticbeanstalk.com");
         break;
       case Flavor.HOMOLOG:
         _api = Api("");

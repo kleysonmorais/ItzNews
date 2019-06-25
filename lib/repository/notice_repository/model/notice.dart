@@ -19,17 +19,25 @@ class Notice extends StatelessWidget {
       this.category, this.link, this.origin);
 
   Notice.fromMap(Map<String, dynamic> map)
-      : img = map['url_img'],
-        title = map['title']['rendered'],
+      : img = Notice.getUrlImg(map),
+        title = map['title'],
         date = map['date'],
-        content = map['content']['rendered'],
-        description = map['excerpt']['rendered'],
-        // category = map['category'],
-        category = 'Categoria',
-        link = map['guid']['rendered'],
-        origin = 'Imperatriz Notícias';
+        content = map['content'],
+        description = map['description'],
+        category = map['category'],
+        link = map['link'],
+        origin = map['origin'];
 
   BuildContext _context;
+
+  static getUrlImg(Map<String, dynamic> map) {
+    if (map['media_image'] != "Vazio") {
+      return map['media_image']['sizes'];
+    } else {
+      print(map['media_image']);
+      return '';
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -56,7 +64,7 @@ class Notice extends StatelessWidget {
         children: <Widget>[
           new Hero(
             tag: title,
-            child: _getImgWidget(img),
+            child: _getImgWidget(getImgSize(img)),
             // child: _getImgWidget(Functions.getImgResizeUrl(img, 200, 200)),
           ),
           _getColumText(title, date, description)
@@ -68,9 +76,28 @@ class Notice extends StatelessWidget {
   _handleTapUp() {
     Navigator.of(_context)
         .push(new MaterialPageRoute(builder: (BuildContext context) {
-      return new DetailPage(
-          img, title, date, content, description, category, link, origin);
+      return new DetailPage(getImgSize(img), title, date, content, description,
+          category, link, origin);
     }));
+  }
+
+  getImgSize(img) {
+    if (img == '') return '';
+
+    if (img['extra-image-small'] != null &&
+        img['extra-image-small']['source_url'] != null) {
+      return img['extra-image-small']['source_url'];
+    }
+
+    if (img['medium'] != null && img['medium']['source_url'] != null) {
+      return img['medium']['source_url'];
+    }
+
+    if (img['full'] != null && img['full']['source_url'] != null) {
+      return img['full']['source_url'];
+    }
+
+    return '';
   }
 
   Widget _getColumText(tittle, date, description) {

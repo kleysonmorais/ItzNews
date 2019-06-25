@@ -21,12 +21,33 @@ class IntroNews {
   IntroNews.fromNotice(Notice notice)
       : title = notice.title,
         category = notice.category,
-        imageUrl = notice.img,
+        imageUrl = IntroNews.getUrlImg(notice),
         content = notice.content,
         description = notice.description,
         date = notice.date,
         link = notice.link,
         origin = notice.origin;
+
+  static getUrlImg(notice) {
+    if (notice.img == '') return '';
+
+    if (notice.img['extra-image-square-medium'] != null &&
+        notice.img['extra-image-square-medium']['source_url'] != null) {
+      return notice.img['extra-image-square-medium']['source_url'];
+    }
+
+    if (notice.img['medium'] != null &&
+        notice.img['medium']['source_url'] != null) {
+      return notice.img['medium']['source_url'];
+    }
+
+    if (notice.img['full'] != null &&
+        notice.img['full']['source_url'] != null) {
+      return notice.img['full']['source_url'];
+    }
+    
+    return '';
+  }
 }
 
 class IntroNewsItem extends StatelessWidget {
